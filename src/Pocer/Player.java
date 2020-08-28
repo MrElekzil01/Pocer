@@ -3,7 +3,7 @@ package Pocer;
 import java.util.*;
 
 public class Player {
-    private List<Cart> hand =new ArrayList<Cart>();
+    private List<Cart> hand =new ArrayList<>();
     private String combination="";
     private double combinationNumber; // 1 - пара, 2- 2 пары, 3 - тройка, 4- Стрит, 5 - Флеш, 6- Фул Хаус, 7- Карэ, 8 - Стрит флеш
     public List<Cart> getHand() {

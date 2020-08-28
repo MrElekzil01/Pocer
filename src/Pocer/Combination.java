@@ -45,7 +45,7 @@ public class Combination {
                  if(carts.get(i)==carts.get(i+1)){
                      iterator++;
                  }
-                 else if(iterator==2)
+                 else if(iterator==2||iterator==1)
                  {
                      player.setCombination("Фулл хаус");
                      player.setCombinationNumber(6);
@@ -57,6 +57,10 @@ public class Combination {
                      player.setCombinationNumber(7);
                      break;
                  }
+                if(iterator==3&&i==player.getHand().size()-2) {
+                    player.setCombination("Каре");
+                    player.setCombinationNumber(7);
+                }
              }
          }
          iterator=0;
@@ -68,9 +72,15 @@ public class Combination {
                  else if(iterator==1) {
                      player.setCombination("Две пары");
                      player.setCombinationNumber(2);
+                     break;
                  }
                  else if(iterator==2)
                  {
+                     player.setCombination("Тройка");
+                     player.setCombinationNumber(3);
+                     break;
+                 }
+                 if(iterator==2&&i==player.getHand().size()-2) {
                      player.setCombination("Тройка");
                      player.setCombinationNumber(3);
                  }
