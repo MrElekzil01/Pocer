@@ -25,7 +25,7 @@ public class Player {
         return combinationNumber;
     }
 
-    public void setCombinationNumber(int combinationNumber) {
+    public void setCombinationNumber(double combinationNumber) {
         this.combinationNumber = combinationNumber;
     }
 
