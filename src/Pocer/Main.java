@@ -9,7 +9,7 @@ public class Main {
         List<Player> players = new ArrayList<>();
         Player winPlayer;
      Pack_36 pa = new Pack_36();
-     int numberPlayers = 4;
+     int numberPlayers = 3;
      for (int i=0;i<numberPlayers;i++) {
          Player player = new Player();
          player.getCarts(pa);
@@ -18,18 +18,32 @@ public class Main {
         for (int i=0;i<numberPlayers;i++) {
             Combination comb = new Combination(players.get(i));
         }
-        System.out.println("Ваши карты:");
-        for (Cart cart:players.get(0).getHand()) {
-            System.out.println(cart.getWeight()+" "+cart.getColor());
+        for (int i=0;i<numberPlayers;i++) {
+            if(i==0){
+                System.out.println("Ваши карты:");
+            }else{
+                System.out.println("Карты "+(i+1)+"-того игрока");
+            }
+            for (Cart cart:players.get(i).getHand()) {
+                System.out.println(cart.getWeight()+" "+cart.getColor());
+            }
+            System.out.println();
+            System.out.println(players.get(i).getCombination());
+            System.out.println();
         }
-        System.out.println(players.get(0).getCombination());
         Win wins = new Win();
-        winPlayer=wins.win(players);
-        System.out.println();
-        System.out.println("Победитель:");
-        for (Cart cart:winPlayer.getHand()) {
-            System.out.println(cart.getWeight()+" "+cart.getColor());
+        StringBuilder draw = new StringBuilder();
+        winPlayer=wins.win(players,draw);
+        if(!draw.toString().isEmpty()) {
+            System.out.println(draw.toString());
         }
-     System.out.println(winPlayer.getCombination());
+        else {
+            System.out.println("Победитель:");
+            for (Cart cart:winPlayer.getHand()) {
+                System.out.println(cart.getWeight()+" "+cart.getColor());
+            }
+            System.out.println();
+            System.out.println(winPlayer.getCombination());
+        }
     }
 }
