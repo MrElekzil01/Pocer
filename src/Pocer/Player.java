@@ -6,11 +6,9 @@ public class Player {
     private List<Cart> hand =new ArrayList<>();
     private String combination="";
     private double combinationNumber; // 1 - пара, 2- 2 пары, 3 - тройка, 4- Стрит, 5 - Флеш, 6- Фул Хаус, 7- Карэ, 8 - Стрит флеш
+
     public List<Cart> getHand() {
         return hand;
-    }
-    public void setHand(ArrayList<Cart> hand) {
-        this.hand = hand;
     }
 
     public String getCombination() {
@@ -42,9 +40,16 @@ public class Player {
         for (int i:cards) {
             interim = hand.get(i);
             hand.remove(i);
-            hand.add(pack.getColoda().get(0));
+            hand.add(i,pack.getColoda().get(0));
             pack.getColoda().remove(0);
             pack.getColoda().add(pack.getColoda().size(),interim);
+        }
+    }
+    public void removeCarts(Pack pack){
+        int size = hand.size();
+        for (int i = 0;i < size;i++){
+            pack.getColoda().add(hand.get(0));
+            hand.remove(0);
         }
     }
 }
