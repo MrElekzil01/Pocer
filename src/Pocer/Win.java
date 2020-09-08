@@ -3,25 +3,26 @@ package Pocer;
 import java.util.*;
 
 public class Win {
-    public Player win(List<Player> player,StringBuilder string)
+    public int win(List<Player> player,StringBuilder string)
     {
         double max=0;
         boolean isDraw=false;
-        Player Winner=player.get(0);
-        max = Winner.getCombinationNumber();
+        Player winner=player.get(0);
+        max = winner.getCombinationNumber();
         for (Player pl:player) {
-            if(max==pl.getCombinationNumber()&&Winner!=pl) {
+            if(max==pl.getCombinationNumber()&&winner!=pl) {
                 isDraw=true;
             }
             if(max<pl.getCombinationNumber()) {
                 max=pl.getCombinationNumber();
-                Winner=pl;
+                winner=pl;
                 isDraw=false;
             }
         }
         if(isDraw){
             string.append("Ничья");
         }
-        return Winner;
+        int win = player.indexOf(winner);
+        return win;
     }
 }

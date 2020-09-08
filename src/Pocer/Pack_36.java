@@ -8,7 +8,6 @@ public class Pack_36 extends Pack {
             "валет", "дама", "король", "туз"));
     private List<Integer> wheightsNumber = new ArrayList<Integer>(Arrays.asList(6,7,8,9,10,11,12,13,14));
     public Pack_36(){
-        super(36);
         int colorNumber=0;
         for(int i=0;i<9;i++) //Create Pack of carts
         {
